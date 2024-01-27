@@ -62,7 +62,7 @@ pipeline {
         }
         stage('Trivy image scan') {
             steps {
-                sh ('docker run -v /var/run/docker.sock:/var/run/docker.sock aquasec/trivy image srikanthmadhavarapu/hostar:${IMAGE_TAG} --no-progress --scanners vuln  --exit-code 0 --severity HIGH,CRITICAL --format table')
+                sh ('docker run -v /var/run/docker.sock:/var/run/docker.sock aquasec/trivy image srikanthmadhavarapu/hotstar:${IMAGE_TAG} --no-progress --scanners vuln  --exit-code 0 --severity HIGH,CRITICAL --format table > trivyimage.txt')
             }
         }
         stage ('Cleanup Artifacts') {
